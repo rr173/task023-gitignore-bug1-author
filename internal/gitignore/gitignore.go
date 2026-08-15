@@ -231,9 +231,6 @@ func Decide(patterns []Pattern, path string) (ignored bool, matched *Pattern) {
 
 // Check 对多个路径批量判定，保持输入顺序。
 func Check(patterns []Pattern, paths []string) []Result {
-	if len(patterns) == 0 {
-		return []Result{}
-	}
 	results := make([]Result, 0, len(paths))
 	for _, p := range paths {
 		ignored, matched := Decide(patterns, p)
